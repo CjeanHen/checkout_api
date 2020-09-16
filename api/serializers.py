@@ -5,23 +5,31 @@ from .models.profile import Profile
 from .models.survey import Survey
 from .models.question import Question
 from .models.user import User
+from .models.answer import Answer
+
+class AnswerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Answer
+        fields = '__all__'
 
 class QuestionSerializer(serializers.ModelSerializer):
+    answers = AnswerSerializer(many=True, read_only=True)
     class Meta:
         model = Question
-        fields = ('id', 'name', 'color', 'ripe', 'owner')
+        fields = ('id', 'question', 'part_of', 'created_on', 'owner', 'answers')
 
 class SurveySerializer(serializers.ModelSerializer):
-    questions = QuestionSerializer(many=True)
+    questions = QuestionSerializer(many=True, read_only=True)
+    responses = AnswerSerializer(many=True, read_only=True)
     class Meta:
         model = Survey
-        fields = ('id', 'name', 'content', 'created_on', 'questions','owner')
+        fields = ('id', 'name', 'description', 'created_on', 'questions', 'responses', 'owner')
 
 class ProfileSerializer(serializers.ModelSerializer):
-    surveys = SurveySerializer(many=True)
+    surveys = SurveySerializer(many=True, read_only=True)
     class Meta:
         model = Profile
-        fields = ('id', 'first_name', 'last_name', 'bio', 'surveys' 'owner')
+        fields = ('id', 'first_name', 'last_name', 'bio', 'surveys', 'owner')
 
 class UserSerializer(serializers.ModelSerializer):
     # This model serializer will be used for User creation

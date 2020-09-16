@@ -2,15 +2,24 @@ from django.db import models
 from django.contrib.auth import get_user_model
 
 # Create your models here.
-class Survey(models.Model):
+class Answer(models.Model):
   # define fields
-  # https://docs.djangoproject.com/en/3.0/ref/models/fields/
-  name = models.CharField(max_length=100)
-  description = models.CharField(max_length=300)
+  # https://docs.djangoproject.com/en/3.0/ref/models/fields
+  response = models.CharField(max_length=500)
   created_on = models.DateField(auto_now_add=True)
   owner = models.ForeignKey(
       get_user_model(),
       on_delete=models.CASCADE
+  )
+  answer_to = models.ForeignKey(
+    'Question',
+    related_name = 'answers',
+    on_delete = models.CASCADE
+  )
+  on_survey = models.ForeignKey(
+    'Survey',
+    related_name = 'responses',
+    on_delete = models.CASCADE
   )
 
   def __str__(self):
@@ -21,7 +30,7 @@ class Survey(models.Model):
     """Returns dictionary version of Mango models"""
     return {
         'id': self.id,
-        'created_on': self.name,
-        'questions': self.questions,
+        'created_on': self.created_on,
+        'response': self.response,
         'owner': self.owner
     }
