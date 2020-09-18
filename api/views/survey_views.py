@@ -89,3 +89,27 @@ class SurveyDetail(generics.RetrieveUpdateDestroyAPIView):
             return Response(status=status.HTTP_204_NO_CONTENT)
         # If the data is not valid, return a response with the errors
         return Response(data.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class SurveysForAll(generics.ListCreateAPIView):
+    permission_classes=(IsAuthenticated,)
+    serializer_class = SurveySerializer
+    def get(self, request):
+        """Index request"""
+        # Get all the mangos:
+        # mangos = Mango.objects.all()
+        # Filter the mangos by owner, so you can only see your owned mangos
+        surveys = Survey.objects.all()
+        # Run the data through the serializer
+        data = SurveySerializer(surveys, many=True).data
+        return Response({ 'surveys': data })
+
+class TakeSurvey(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes=(IsAuthenticated,)
+    serializer_class = SurveySerializer
+    def get(self, request, pk):
+        """Show request"""
+        # Locate the mango to show
+        survey = get_object_or_404(Survey, pk=pk)
+        # Run the data through the serializer so it's formatted
+        data = SurveySerializer(survey).data
+        return Response({ 'survey': data })
