@@ -15,7 +15,7 @@ class Survey(models.Model):
 
   def __str__(self):
     # This must return a string
-    return f"{self.name} "
+    return f"{self.name} {self.description}"
 
   def as_dict(self):
     """Returns dictionary version of Mango models"""

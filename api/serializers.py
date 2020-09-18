@@ -13,14 +13,12 @@ class AnswerSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class QuestionSerializer(serializers.ModelSerializer):
-    answers = AnswerSerializer(many=True, read_only=True)
     class Meta:
         model = Question
-        fields = ('id', 'question', 'part_of', 'created_on', 'owner', 'answers')
+        fields = ('id', 'question', 'part_of', 'created_on', 'owner')
 
 class SurveySerializer(serializers.ModelSerializer):
     questions = QuestionSerializer(many=True, read_only=True)
-    responses = AnswerSerializer(many=True, read_only=True)
     class Meta:
         model = Survey
         fields = ('id', 'name', 'description', 'created_on', 'questions', 'responses', 'owner')

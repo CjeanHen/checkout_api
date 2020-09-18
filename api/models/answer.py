@@ -24,7 +24,7 @@ class Answer(models.Model):
 
   def __str__(self):
     # This must return a string
-    return f"{self.name} "
+    return f"{self.response} "
 
   def as_dict(self):
     """Returns dictionary version of Mango models"""
