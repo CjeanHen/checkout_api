@@ -10,8 +10,8 @@ Inspired by weekly exit tickets, checkout is an easy way to make a questionaire 
 6. Run your server with `python3 manage.py runserver`
 
 ## Important Links
-[Client Repo](https://github.com/CjeanHen/checkout_client)
-[Deployed Site]()
+- [Client Repo](https://github.com/CjeanHen/checkout_client)
+- [Deployed Site]()
 
 ## Planning Story
 I was unsure of how to approach this project at first. When thinking about tables and resources I wasn't sure how much I needed to break down each question. Ultimately, I ended up with a user, survey, question and answer table. Doing this allowed me greater flexibility when thinking of how to retrieve and display data, and in hindsight I think it was the right choice. Since this was my first time working with an SQL database I was worried about the rigidness of the models, but for this project it wasn't a problem as I could easily modify the models throughout my development process. This would not be the case in a large scale application, as there could be negative side effects for the existing data.
