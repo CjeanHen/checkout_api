@@ -7,6 +7,7 @@ class Answer(models.Model):
   # https://docs.djangoproject.com/en/3.0/ref/models/fields
   response = models.CharField(max_length=500)
   created_on = models.DateField(auto_now_add=True)
+  author = models.CharField(max_length=500, blank=True)
   owner = models.ForeignKey(
       get_user_model(),
       on_delete=models.CASCADE

@@ -23,7 +23,7 @@ class SurveySerializer(serializers.ModelSerializer):
     responses = AnswerSerializer(many=True, read_only=True)
     class Meta:
         model = Survey
-        fields = ('id', 'name', 'description', 'created_on', 'questions', 'responses', 'owner')
+        fields = ('id', 'name', 'description', 'created_on', 'questions', 'author', 'responses', 'owner')
 
 class ProfileSerializer(serializers.ModelSerializer):
     surveys = SurveySerializer(many=True, read_only=True)

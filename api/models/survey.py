@@ -8,6 +8,7 @@ class Survey(models.Model):
   name = models.CharField(max_length=100)
   description = models.CharField(max_length=300)
   created_on = models.DateField(auto_now_add=True)
+  author = models.CharField(max_length=500, blank=True)
   owner = models.ForeignKey(
       get_user_model(),
       on_delete=models.CASCADE
