@@ -79,4 +79,4 @@ As a signed in user, I would like to take a survey.
 - I would like to add the respondent's name to each response
 
 ## ERD
-- [Wireframes](https://docs.google.com/presentation/d/e/2PACX-1vTxRf--z_ez1J1ejYtR-HSt4GOGPrsZHefpV-GSHUXUpujRI4ALlj2EkKN3OSUDPTWtNwfDx4iC1d9D/pub?start=false&loop=false&delayms=5000)
+- [ERD](https://drive.google.com/file/d/1FaaZ2exOug9G8Ew0RyeFdN_V5Cxh4TMD/view?usp=sharing)
