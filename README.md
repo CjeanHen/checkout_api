@@ -1,7 +1,7 @@
 # Checkout
 Inspired by weekly exit tickets, checkout is an easy way to make a questionaire to get feedback from students or team members. Anyone can create a survey, but only the survey owner can edit, delete or view responses to the questions. All response submits are final. It is easy to view all of the responses below each question and allows you to quickly guage your audience's feedback.
 
-## Set Up and Instalation
+## Set Up and Installation
 1. Fork and clone this repository
 2. `cd` into your project directory
 3. Enter a virtual environment by runing `pipenv shell`
